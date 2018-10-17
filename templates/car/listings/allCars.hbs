@@ -1,0 +1,44 @@
+{{> header}}
+{{#if cars}}
+    <div id="car-listings">
+        <h1>Car Listings</h1>
+        <div id="listings">
+            {{#each cars}}
+                <div class="listing">
+                    <p>{{title}}</p>
+                    <img src="{{imageUrl}}">
+                    <h2>Brand: {{brand}}</h2>
+                    <div class="info">
+                        <div id="data-info">
+                            <h3>Seller: {{seller}}</h3>
+                            <h3>Fuel: {{fuel}}</h3>
+                            <h3>Year: {{year}}</h3>
+                            <h3>Price: {{price}} $</h3>
+                        </div>
+                <ul>
+                    <li class="action">
+                        <a href="#/carDetails/{{_id}}" class="button-carDetails">Details</a>
+                    </li>
+                </ul>
+                        {{#if isAuthor}}
+                            <div id="data-buttons">
+                                <ul>
+                                    <li class="action">
+                                        <a href="#/editCar/{{_id}}" class="button-carDetails">edit</a>
+                                    </li>
+                                    <li class="action">
+                                        <a href="#/deleteCar/{{_id}}" class="button-carDetails">delete</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{else}}
+    <p class="no-cars">No cars in database.</p>
+{{/if}}
+
+{{> footer}}
